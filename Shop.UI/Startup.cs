@@ -36,7 +36,7 @@ namespace Shop
             });
 
 
-            services.AddDbContext<ApplicationDBConetext>(options => options.UseSqlServer(_config["DefaultConnection"], b => b.MigrationsAssembly("Shop")));
+            services.AddDbContext<ApplicationDBConetext>(options => options.UseSqlServer(_config["DefaultConnection"]));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
