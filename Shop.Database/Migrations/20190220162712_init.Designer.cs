@@ -9,7 +9,7 @@ using Shop.Database;
 
 namespace Shop.Database.Migrations
 {
-    [DbContext(typeof(ApplicationDBConetext))]
+    [DbContext(typeof(ApplicationDBContext))]
     [Migration("20190220162712_init")]
     partial class init
     {

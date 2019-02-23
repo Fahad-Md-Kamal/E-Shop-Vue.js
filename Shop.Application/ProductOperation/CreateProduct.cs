@@ -5,20 +5,20 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shop.Application.ProductOperation
+namespace Shop.Application.CreateProduct
 {
     public class CreateProduct
     {
-        private ApplicationDBConetext _context;
+        private ApplicationDBContext _context;
 
-        public CreateProduct(ApplicationDBConetext conetext)
+        public CreateProduct(ApplicationDBContext conetext)
         {
             _context = conetext;
         }
 
         public async Task Do(ProductViewModel vm)
         {
-            _context.Product.Add(new Product
+            _context.Products.Add(new Product
             {
                 Name = vm.Name,
                 Description = vm.Description,
