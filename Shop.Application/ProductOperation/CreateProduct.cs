@@ -16,19 +16,24 @@ namespace Shop.Application.ProductOperation
             _context = conetext;
         }
 
-        public async Task Do(string _name, string _desc, decimal _price)
+        public async Task Do(ProductViewModel vm)
         {
             _context.Product.Add(new Product
             {
-                Name = _name,
-                Description = _desc,
-                Price = _price
+                Name = vm.Name,
+                Description = vm.Description,
+                Price = vm.Price
             });
 
             await _context.SaveChangesAsync();
         }
-
-
-
     }
+
+    public class ProductViewModel
+    {
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public decimal Price { get; set; }
+    }
+
 }

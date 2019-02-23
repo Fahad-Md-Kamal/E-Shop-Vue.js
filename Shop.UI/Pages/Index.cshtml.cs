@@ -21,20 +21,13 @@ namespace Shop.Pages
         [BindProperty]
         public ProductViewModel Product { get; set; }
 
-        public class ProductViewModel
-        {
-            public string Name { get; set; }
-            public string Description { get; set; }
-            public decimal Price { get; set; }
-        }
-
         public void OnGet()
         {
         }
 
         public async Task<IActionResult> OnPost()
         {
-           await new CreateProduct(_context).Do(Product.Name, Product.Description, Product.Price);
+           await new CreateProduct(_context).Do(Product);
 
             return RedirectToPage("Index");
         }
