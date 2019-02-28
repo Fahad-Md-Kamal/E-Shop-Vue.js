@@ -19,18 +19,41 @@ namespace Shop.UI.Controllers
         }
 
         [HttpGet("products")]
-        public IActionResult GetProducts() => Ok(new GetProducts(_context).Do());
+        public IActionResult GetProducts()
+        {
+            return Ok(new GetProducts(_context).Do());
+        }
+
+
 
         [HttpGet("products/{id}")]
-        public IActionResult GetProducts(int id) => Ok(new GetProduct(_context).Do(id));
+        public IActionResult GetProduct(int id)
+        {
+            return Ok(new GetProduct(_context).Do(id));
+        }
+
+
 
         [HttpPost("products")]
-        public IActionResult CreateProduct(CreateProduct.ProductViewModel vm) => Ok(new CreateProduct(_context).Do(vm));
+        public async Task<IActionResult> CreateProduct([FromBody] CreateProduct.Request request)
+        {
+            return Ok(await new CreateProduct(_context).Do(request));
+        }
+
+
 
         [HttpDelete("products/{id}")]
-        public IActionResult GDeleteProduct(int id) => Ok(new DeleteProduct(_context).Do(id));
+        public async Task<IActionResult> GDeleteProduct(int id)
+        {
+            return Ok(await new DeleteProduct(_context).Do(id));
+        }
+
+
 
         [HttpPut("products")]
-        public IActionResult UpdateProduct(UpdateProduct.ProductViewModel vm) => Ok(new UpdateProduct(_context).Do(vm));
+        public async Task<IActionResult> UpdateProduct([FromBody] UpdateProduct.Request request)
+        {
+            return Ok(await new UpdateProduct(_context).Do(request));
+        }
     }
 }
