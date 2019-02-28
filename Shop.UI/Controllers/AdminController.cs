@@ -28,7 +28,7 @@ namespace Shop.UI.Controllers
         public IActionResult CreateProduct(CreateProduct.ProductViewModel vm) => Ok(new CreateProduct(_context).Do(vm));
 
         [HttpDelete("products/{id}")]
-        public IActionResult GDeleteProduct(int id) => Ok(new DeleteProduct(_context).Do(id));
+        public IActionResult DeleteProduct(int id) => Ok(new DeleteProduct(_context).Do(id));
 
         [HttpPut("products")]
         public IActionResult UpdateProduct(UpdateProduct.ProductViewModel vm) => Ok(new UpdateProduct(_context).Do(vm));
