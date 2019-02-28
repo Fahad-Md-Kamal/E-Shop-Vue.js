@@ -36,7 +36,6 @@ namespace Shop.Application.ProductAdmin
                 Description = product.Description,
                 Price = product.Price
             };
-
         }
 
         public class Request

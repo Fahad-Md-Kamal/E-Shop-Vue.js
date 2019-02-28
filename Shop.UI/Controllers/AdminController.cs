@@ -43,7 +43,7 @@ namespace Shop.UI.Controllers
 
 
         [HttpDelete("products/{id}")]
-        public async Task<IActionResult> GDeleteProduct(int id)
+        public async Task<IActionResult> DeleteProduct(int id)
         {
             return Ok(await new DeleteProduct(_context).Do(id));
         }
