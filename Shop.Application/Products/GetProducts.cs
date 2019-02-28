@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Shop.Application.GetProduct
+namespace Shop.Application.Products
 {
     public class GetProducts
     {
@@ -23,12 +23,14 @@ namespace Shop.Application.GetProduct
             Description = x.Description,
             Price = $"$ {x.Price.ToString("N2")}", // 1100.50 => 1,100 => $ 1100.50
         });
+
+        public class ProductViewModel
+        {
+            public string Name { get; set; }
+            public string Description { get; set; }
+            public string Price { get; set; }
+        }
     }
 
-    public class ProductViewModel
-    {
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string Price { get; set; }
-    }
+
 }
